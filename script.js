@@ -124,34 +124,84 @@
 
 // ENCAPSULATION
 
-const premObj = {
-  name: "Prem",
-  add: "Sydey",
-  dob: "1-1-2000",
-};
+// const premObj = {
+//   name: "Prem",
+//   add: "Sydey",
+//   dob: "1-1-2000",
+// };
 
-class Person {
+// class Person {
+//   constructor(obj) {
+//     this.name = obj.name;
+//     this.add = obj.add;
+//     this.dob = obj.dob;
+//   }
+
+//   bio() {
+//     return `This is ${this.name} form ${this.add} and I am ${this.getAge(
+//       this.dob
+//     )} years old.`;
+//   }
+
+//   getAge() {
+//     return new Date().getFullYear() - new Date(this.dob).getFullYear();
+//   }
+
+//   birthDay() {
+//     return `Happy Birthday ${this.name}! Now you are ${
+//       this.getAge(this.dob) + 1
+//     } years old`;
+//   }
+// }
+// const premInfo = new Person(premObj);
+// console.log(premInfo.birthDay());
+
+// INHERITANCE
+class Living {
   constructor(obj) {
     this.name = obj.name;
     this.add = obj.add;
-    this.dob = obj.dob;
+  }
+}
+class Person extends Living {
+  constructor(obj) {
+    this.career = obj.career;
   }
 
   bio() {
-    return `This is ${this.name} form ${this.add} and I am ${this.getAge(
-      this.dob
-    )} years old.`;
+    return `This is ${this.name} form ${this.add} and I am ${this.career} .`;
   }
 
-  getAge() {
-    return new Date().getFullYear() - new Date(this.dob).getFullYear();
-  }
-
-  birthDay() {
-    return `Happy Birthday ${this.name}! Now you are ${
-      this.getAge(this.dob) + 1
-    } years old`;
+  career() {
+    return `There career is ${this.career}.`;
   }
 }
-const premInfo = new Person(premObj);
-console.log(premInfo.birthDay());
+
+class Animal extends Living {
+  constructor(obj) {
+    this.strength = obj.strength;
+  }
+
+  bio() {
+    return `This is ${this.name} form ${this.add} .`;
+  }
+
+  power() {
+    return `They can jump ${this.strength}.`;
+  }
+}
+
+const p1 = {
+  name: "prem",
+  add: "sydney",
+  career: "Soft. eng.",
+};
+
+const monkey1 = {
+  name: "mky1",
+  add: "xyz zoo",
+  climb: "10m",
+};
+
+const monkey1Info = new Animal(monkey1);
+console.log(monkey1Info.bio());
